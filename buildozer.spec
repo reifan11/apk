@@ -35,8 +35,6 @@ android.extra_manifest_xml = \
 
 android.features         = android.hardware.wifi
 
-p4a.branch = develop
-
 android.logcat_filters   = *:S python:D
 
 [buildozer]
