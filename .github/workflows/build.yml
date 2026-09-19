@@ -15,8 +15,16 @@ jobs:
 
       - name: Install deps
         run: |
-          sudo apt-get install -y python3-pip aidl -qq
-          pip install buildozer cython==3.0.2
+          sudo apt-get update
+          sudo apt-get install -y python3-pip aidl
+          python3 -m pip install --upgrade pip
+          python3 -m pip install \
+            "buildozer==1.5.0" \
+            "cython==3.0.2" \
+            "python-for-android==2024.1.21"
+
+      - name: Clean Buildozer state
+        run: rm -rf .buildozer bin
 
       - name: Build APK
         run: yes | buildozer android debug
